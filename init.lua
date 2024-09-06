@@ -595,7 +595,11 @@ require('lazy').setup({
         -- pyright = {},
         rust_analyzer = {},
         zls = {},
-        ruff = {},
+        ruff = {
+          settings = {
+            configuration = '~/AppData/Local/ruff/ruff.toml',
+          },
+        },
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
