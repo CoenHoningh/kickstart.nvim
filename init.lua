@@ -94,6 +94,8 @@ vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
 vim.g.loaded_perl_provider = 0
 vim.g.python3_host_prog = '~/AppData/Local/Programs/Python/Launcher/py.exe'
+vim.opt.fileformat = 'unix'
+vim.opt.fileformats = 'unix,dos'
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
