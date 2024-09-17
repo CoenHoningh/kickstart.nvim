@@ -87,6 +87,7 @@ return {
       powershell_es = {
         bundle_path = '~/Documents/spul/PowerShellEditorServices/module',
       },
+      taplo = {},
     }
 
     require('mason').setup()
