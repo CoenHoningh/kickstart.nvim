@@ -50,6 +50,9 @@ return {
           map('<leader>th', function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
           end, '[T]oggle Inlay [H]ints')
+          vim.defer_fn(function()
+            vim.lsp.inlay_hint.enable(true)
+          end, 5000)
         end
       end,
     })
@@ -59,7 +62,25 @@ return {
       clangd = {},
       gopls = {},
       basedpyright = {},
-      rust_analyzer = {},
+      rust_analyzer = {
+        settings = {
+          ['rust-analyzer'] = {
+            cargo = {
+              allFeatures = true,
+            },
+            imports = {
+              group = {
+                enable = false,
+              },
+            },
+            completion = {
+              postfix = {
+                enable = true,
+              },
+            },
+          },
+        },
+      },
       zls = {},
       ruff = {
         settings = {
@@ -79,8 +100,13 @@ return {
           Lua = {
             completion = {
               callSnippet = 'Replace',
+              displayContext = 4,
             },
             diagnostics = { disable = { 'missing-fields' } },
+            hint = {
+              enable = true,
+              setType = true,
+            },
           },
         },
       },
@@ -91,9 +117,7 @@ return {
     }
 
     require('mason').setup()
-    local ensure_installed = vim.tbl_filter(function(x)
-      return x ~= ''
-    end, vim.tbl_keys(servers or {}))
+    local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       'stylua',
     })
