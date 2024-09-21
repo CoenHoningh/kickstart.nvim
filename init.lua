@@ -139,7 +139,9 @@ require('lazy').setup({
   require 'plugins.neo-tree',
   require 'plugins.gitsigns',
 
-  { import = 'custom.plugins' },
+  {
+    import = 'custom.plugins',
+  },
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
@@ -166,6 +168,7 @@ require('lazy').setup({
     notify = false,
   },
   performance = {
+    cache = { enabled = true },
     rtp = {
       disabled_plugins = {
         'gzip',
