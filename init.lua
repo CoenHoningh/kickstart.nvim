@@ -74,8 +74,8 @@ require('lazy').setup({
       },
     },
   },
-  require 'config.telescope',
-  require 'config.lsp',
+  require 'plugins.telescope',
+  require 'lsp.lsp',
 
   {
     'ellisonleao/gruvbox.nvim',
@@ -131,13 +131,13 @@ require('lazy').setup({
       context = { enable = true },
     },
   },
-  require 'config.trouble',
-  require 'kickstart.plugins.debug',
-  require 'kickstart.plugins.indent_line',
-  require 'kickstart.plugins.lint',
-  require 'kickstart.plugins.autopairs',
-  require 'kickstart.plugins.neo-tree',
-  require 'kickstart.plugins.gitsigns',
+  require 'plugins.trouble',
+  require 'plugins.debug',
+  require 'plugins.indent_line',
+  require 'plugins.lint',
+  require 'plugins.autopairs',
+  require 'plugins.neo-tree',
+  require 'plugins.gitsigns',
 
   { import = 'custom.plugins' },
 }, {
